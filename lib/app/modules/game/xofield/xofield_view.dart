@@ -7,13 +7,14 @@ const controllerTag = 'ctrlTagXO_';
 class XOFieldView extends GetView<XOFieldController> {
   final int num;
   final XOState type;
+  @override
+  final XOFieldController controller;
   final Function onMoveEnd;
-  const XOFieldView(this.num, this.type, this.onMoveEnd, {super.key});
+  const XOFieldView(this.num, this.type, this.onMoveEnd, this.controller,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        Get.put(XOFieldController(num: num), tag: "$controllerTag$num");
     return GestureDetector(
       onTap: () {
         if (controller.item == XOState.e) {

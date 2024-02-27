@@ -23,7 +23,7 @@ class GameView extends GetView<GameController> {
             Flexible(
                 child: Center(
                     child: Obx(() => Text(
-                          "Ход ${controller.playerMove.value.str}",
+                          controller.gameText.value,
                           style: const TextStyle(fontSize: 40),
                         )))),
             Center(
@@ -39,6 +39,7 @@ class GameView extends GetView<GameController> {
                           index,
                           controller.playerMove.value,
                           () => controller.changePlayerMove(),
+                          controller.fields[index],
                         ));
                   },
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
